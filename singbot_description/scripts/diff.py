@@ -5,13 +5,13 @@ import RPi.GPIO as GPIO
 import time
 from math import pi
 
-leftEn = 25         #   Purple
-rightEn = 4        #   Red
+leftEn = 4         #   Purple
+rightEn = 25       #   Red
 
-leftBackward = 23    #   Blue
-leftForward = 24     #   Green
-rightForward = 27   #   Yellow
-rightBackward = 22  #   Orange
+leftBackward = 22    #   Blue
+leftForward = 27     #   Green
+rightForward = 23   #   Yellow
+rightBackward = 24  #   Orange
 
 motor_rpm = 7700              #   max rpm of motor on full voltage 
 wheel_diameter = 0.05      #   in meters
