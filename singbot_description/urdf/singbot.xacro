@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<robot name="singbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find singbot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find singbot_description)/urdf/singbot.trans" />
+<xacro:include filename="$(find singbot_description)/urdf/singbot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.00013371226325704471 0.0 0.055336504479511175" rpy="0 0 0"/>
+    <mass value="10.144040607759354"/>
+    <inertia ixx="0.043536" iyy="0.070312" izz="0.052476" ixy="0.0" iyz="0.0" ixz="-4.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-3.4888758548845544e-14 -0.012499999999999997 3.469446951953614e-18" rpy="0 0 0"/>
+    <mass value="0.23120158435012308"/>
+    <inertia ixx="3.7e-05" iyy="4.9e-05" izz="3.7e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11 0.085 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11 0.085 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-3.4888758548845544e-14 0.012499999999999997 3.469446951953614e-18" rpy="0 0 0"/>
+    <mass value="0.23120158435012308"/>
+    <inertia ixx="3.7e-05" iyy="4.9e-05" izz="3.7e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11 -0.085 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11 -0.085 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_1">
+  <inertial>
+    <origin xyz="-0.035 -9.27846377390412e-18 -0.0036755953484190335" rpy="0 0 0"/>
+    <mass value="0.04508634682126225"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.135 -0.0 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.135 -0.0 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="5.026061718855929e-18 0.0 0.004999999999999977" rpy="0 0 0"/>
+    <mass value="0.22195352097611878"/>
+    <inertia ixx="5.2e-05" iyy="5.2e-05" izz="0.0001" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.2" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.2" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://singbot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin xyz="-0.11 -0.085 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin xyz="-0.11 0.085 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid3" type="fixed">
+  <origin xyz="0.135 0.0 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_1"/>
+</joint>
+
+<joint name="Rigid4" type="fixed">
+  <origin xyz="0.0 0.0 0.2" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+</robot>
