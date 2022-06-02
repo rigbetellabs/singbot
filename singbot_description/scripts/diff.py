@@ -17,7 +17,7 @@ motor_rpm = 7700              #   max rpm of motor on full voltage
 wheel_diameter = 0.05      #   in meters
 wheel_separation = 0.18    #   in meters
 max_pwm_val = 100           #   100 for Raspberry Pi , 255 for Arduino
-min_pwm_val = 30            #   Minimum PWM value that is needed for the robot to move
+min_pwm_val = 0            #   Minimum PWM value that is needed for the robot to move
 
 wheel_radius = wheel_diameter/2
 circumference_of_wheel = 2 * pi * wheel_radius
