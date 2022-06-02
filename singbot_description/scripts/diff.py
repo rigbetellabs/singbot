@@ -138,7 +138,6 @@ def listener():
     rospy.spin()
 
 if __name__== '__main__':
-    print('Tortoisebot Differential Drive Initialized with following Params-')
     print('Motor Max RPM:\t'+str(motor_rpm)+' RPM')
     print('Wheel Diameter:\t'+str(wheel_diameter)+' m')
     print('Wheel Separation:\t'+str(wheel_separation)+' m')
