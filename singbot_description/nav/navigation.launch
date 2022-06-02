@@ -17,7 +17,7 @@
   </group> -->
 
   <!-- rviz -->
-  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find singbot_description)/rviz/navigation.rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find singbot_description)/rviz/nav.rviz"/>
 
   <!-- move_base -->
   <include file="$(find singbot_description)/nav/move_base.launch">
